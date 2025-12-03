@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Beta One",
+  "description": "Une application moderne pour suivre vos scores de golf en temps réel avec calcul automatique des pars, bogeys et birdies.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
