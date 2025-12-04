@@ -158,7 +158,7 @@ const Scorecard: React.FC<ScorecardProps> = ({ state, onRestart }) => {
         <div className="flex gap-4 mt-8">
           <button 
             type="button"
-            onClick={(e) => { e.preventDefault(); onRestart(); }}
+            onClick={() => onRestart()}
             className="flex-1 flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors"
           >
             <RefreshCcw className="w-6 h-6 text-slate-600 mb-2" />

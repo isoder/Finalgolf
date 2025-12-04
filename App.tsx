@@ -61,17 +61,21 @@ const App: React.FC = () => {
   };
 
   const handleRestart = () => {
-    if (window.confirm('Voulez-vous vraiment supprimer ce tournoi et recommencer à zéro ?')) {
-        const newState: GameState = {
-            status: 'setup',
-            players: [],
-            courseType: 9,
-            course: [],
-        };
-        setGameState(newState);
-        // On force le nettoyage du localStorage
-        localStorage.removeItem('golf_tournament_state');
-    }
+    // Utilisation de setTimeout pour éviter les conflits d'événements UI avec window.confirm
+    // Cela permet au bouton de finir son cycle "click" avant de bloquer l'interface
+    setTimeout(() => {
+        if (window.confirm('Voulez-vous vraiment supprimer ce tournoi et recommencer à zéro ?')) {
+            const newState: GameState = {
+                status: 'setup',
+                players: [],
+                courseType: 9,
+                course: [],
+            };
+            setGameState(newState);
+            // On force le nettoyage du localStorage
+            localStorage.removeItem('golf_tournament_state');
+        }
+    }, 50);
   };
 
   return (
